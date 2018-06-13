@@ -1,0 +1,117 @@
+.nav-bar{
+    width: 15%;
+    background-color: #303030;
+    color: white;
+    height: 100%;
+    top: 50px;
+    position: fixed;
+}
+li{
+    margin-top: 15px;
+    list-style: none;
+    font-size: 15px;
+}
+
+/*.Que-header{*/
+    /*margin-left: 220px;*/
+    /*margin-top: 65px;*/
+    /*width: 82.5%;*/
+    /*height: 35px;*/
+    /*background-color: skyblue;*/
+    /*padding-top: 5px;*/
+    /*font-size: 22px;*/
+/*}*/
+/*.header-name{*/
+    /*margin-left: 10px;*/
+/*}*/
+/*#que-small{*/
+    /*margin-left: 20px;*/
+    /*font-size: 15px;*/
+    /*color: white;*/
+/*}*/
+/*#summery-view{*/
+    /*margin: 20px 0 0 350px;*/
+    /*background-color: honeydew;*/
+    /*width: 400px;*/
+    /*height: 260px;*/
+    /*display: inline-block;*/
+    /*float: left;*/
+/*}*/
+/*#summery-view h4{*/
+    /*margin-left: 100px;*/
+/*}*/
+/*#queue-controller{*/
+    /*background-color: white;*/
+    /*width: 250px;*/
+    /*height: 200px;*/
+    /*display: inline-block;*/
+    /*float: right;*/
+    /*margin-right: 270px;*/
+    /*margin-top: 20px;*/
+    /*background-color: honeydew;*/
+/*}*/
+/*#queue-controller h5{*/
+    /*margin-left: 20px;*/
+/*}*/
+/*.inside{*/
+    /*padding: 15px 0 0 10px;*/
+/*}*/
+/*.left-field-d{*/
+    /*width: 190px;*/
+    /*font-size: 15px;*/
+/*}*/
+/*.btn-primary-hold{*/
+    /*width: 230px;*/
+    /*background-color: #3c8dbc;*/
+    /*color: white;*/
+/*}*/
+/*.btn-primary-redirect{*/
+    /*width: 230px;*/
+    /*background-color: tomato;*/
+    /*color: white;*/
+/*}*/
+/*.bottom{*/
+    /*margin-left: 220px;*/
+    /*margin-top: 320px;*/
+/*}*/
+/*.list-header{*/
+    /*width: 98%;*/
+    /*height: 35px;*/
+    /*background-color: skyblue;*/
+    /*padding-top: 5px;*/
+    /*font-size: 22px;*/
+/*}*/
+/*#que-list{*/
+    /*margin: 15px 0 0 35px;*/
+/*}*/
+/*.each-list{*/
+    /*width: 250px;*/
+    /*height: 150px;*/
+    /*background-color: skyblue;*/
+    /*border-radius: 8px;*/
+/*}*/
+/*.each-list-bottom{*/
+    /*margin-top: 100px;*/
+    /*background-color: #367fa9;*/
+    /*height: 30px;*/
+    /*border-bottom-right-radius: 8px;*/
+    /*border-bottom-left-radius: 8px;*/
+/*}*/
+
+/*.field-border{*/
+    /*width: 200px;*/
+    /*border: 1px solid #C0C0C0;*/
+    /*background-color: #CDCDCD;*/
+/*}*/
+/*.field-border-1{*/
+    /*border: 1px solid #C0C0C0;*/
+/*}*/
+/*-----------------------------------------------------------*/
+
+.bootom-content{
+    margin: 65px 0 0 220px;
+}
+.left-field-d{
+    width: 190px;
+    font-size: 15px;
+}
