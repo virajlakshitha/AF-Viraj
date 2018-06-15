@@ -1,40 +1,61 @@
 import React, {Component} from 'react';
+import {render,ReactDOM} from 'react-dom';
 import './Doctor/DocHome.css';
-import Doc from './Doctor/DocHome';
-import Question from './Doctor/Questionnaire';
-import ViewQuestion from './Doctor/ViewQuestions';
-import AddToQueue from './Nurse/AddToQueue';
-import PrintToken from './Nurse/PrintToken';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
-export default class DoctorHome extends Component{
-    render(){
-        return(<div>
-                <Router><div>
-                <ul>
-                        <li><Link to="/">Dashboard</Link></li>
-                        <li><Link to="/addQuestion">Add Questions</Link></li>
-                        <li><Link to="/viewQuestion">View Questions</Link></li>
-                        <li><Link to="/queue">Add to Queue</Link></li>
-                        <li><Link to="/token">Print Token</Link></li>
-                </ul>
-                <Route exact path="/" render={props => {
-                    return <Doc/>
-                }}/>
-                <Route path="/addQuestion" render={props => {
-                    return <Question/>
-                }}/>
-                <Route path="/viewQuestion" render={props => {
-                    return <ViewQuestion/>
-                }}/>
-                <Route path="/queue" render={props => {
-                    return <AddToQueue/>
-                }}/>
-                <Route path="/token" render={props => {
-                    return <PrintToken/>
-                }}/></div>
-                </Router>
-            </div>
-        );
-    }
+import {DocHome} from './Doctor/DocHome';
+import {Questionnaire} from './Doctor/Questionnaire';
+import {ViewQuestions} from './Doctor/ViewQuestions';
+import {AddToQueue} from './Nurse/AddToQueue';
+import {PrintToken} from './Nurse/PrintToken';
+import {Header} from './Header';
+
+export const DoctorHome = (props) => {
+    return(
+        <div>
+            <Router>
+                <div>
+                    <ul>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/a">qq</Link></li>
+                        <li><Link to="/b">aa</Link></li>
+                    </ul>
+                    <Route exact path="/" render={props => {
+                        return <DocHome/>
+                    }}/>
+                    <Route path="/a" render={props => {
+                        return <Questionnaire/>
+                    }}/>
+                    <Route path="/b" render={props => {
+                        return <ViewQuestions/>
+                    }}/>
+                </div>
+            </Router>
+
+        </div>
+    );
 }
+    // ReactDOM.render(
+        {/*<div>*/}
+                {/*<Router>*/}
+                    {/*<div>*/}
+                        {/*<ul>*/}
+                                {/*<li><Link to="/">Home</Link></li>*/}
+                                {/*<li><Link to="/a">qq</Link></li>*/}
+                                {/*<li><Link to="/b">aa</Link></li>*/}
+                        {/*</ul>*/}
+                        {/*<Route exact path="/" render={props => {*/}
+                            {/*return <DocHome/>*/}
+                        {/*}}/>*/}
+                        {/*<Route path="/a" render={props => {*/}
+                            {/*return <Questionnaire/>*/}
+                        {/*}}/>*/}
+                        {/*<Route path="/b" render={props => {*/}
+                            {/*return <ViewQuestions/>*/}
+                        {/*}}/>*/}
+                    {/*</div>*/}
+                {/*</Router>*/}
+
+            {/*</div>*/}
+    //
+    //     );

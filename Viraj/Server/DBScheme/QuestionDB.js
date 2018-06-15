@@ -23,8 +23,15 @@ const QuestionSchema=Schema({
         require: true
     }
 });
+const DoctorSchema=Schema({
+    name: {
+        type: String,
+        require: true
+    }
+});
 
 mongoose.model('Question',QuestionSchema);
+mongoose.model('Onlinedoc',DoctorSchema);
 
 mongoose.connect('mongodb://127.0.0.1:27017/Hospital',function (err) {
     if(err){

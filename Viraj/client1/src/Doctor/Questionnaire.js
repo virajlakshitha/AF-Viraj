@@ -7,9 +7,18 @@ import {Panel,FormControl,ControlLabel,FormGroup,Button,Form} from 'react-bootst
 
 export default class Questionnaire extends Component{
     validation(){
-
+        var val1=document.getElementById("name1").value;
+        var val2=document.getElementById("name2").value;
+        var val3=document.getElementById("name3").value;
+        var val4=document.getElementById("name4").value;
+        if (val1.match(/^\d/) || val2.match(/^\d/) || val3.match(/^\d/) || val4.match(/^\d/)) {
+            alert("Input values are incorrect");
+        }
+        else{
+            this.onSubmit();
+        }
     }
-    onSubmit(abc){
+    onSubmit(){
         axios.post(api.API+"question/",{
             name : document.getElementById("name1").value,
             relateTo :document.getElementById("name2").value,
@@ -33,7 +42,7 @@ export default class Questionnaire extends Component{
                             <Panel.Title componentClass="h3">Add Questions</Panel.Title>
                         </Panel.Heading>
                         <Panel.Body>
-                            <form onSubmit={() => this.onSubmit(this)}>
+                            <form onSubmit={() => this.validation()}>
                                 <div class="form-group has-success">
                                     <label class="form-control-label">Name</label>
                                     <input type="text" class="form-control is-valid" id="name1" required={"true"}/>
@@ -54,35 +63,8 @@ export default class Questionnaire extends Component{
                             </form>
                         </Panel.Body>
                     </Panel>
-                    {/*<div className={"raw"}>*/}
-                        {/*<div className="col-md-8" style={{"position":"center"}}>*/}
-                        {/*<div class="card border-primary mb-3" style={{"max-width": "20rem;"}}>*/}
-                        {/*<div class="card-header">Patient Information</div>*/}
-                        {/*<div class="card-body">*/}
-                            {/*<form onSubmit={() => this.onSubmit(this)}>*/}
-                                {/*<div class="form-group has-success">*/}
-                                    {/*<label class="form-control-label">Name</label>*/}
-                                    {/*<input type="text" class="form-control is-valid" id="name1"/>*/}
-                                {/*</div>*/}
-                                {/*<div class="form-group has-success">*/}
-                                    {/*<label class="form-control-label">Relate To</label>*/}
-                                    {/*<input type="text" class="form-control is-valid" id="name2"/>*/}
-                                {/*</div>*/}
-                                {/*<div class="form-group">*/}
-                                    {/*<label for="exampleTextarea">Remarks</label>*/}
-                                    {/*<textarea class="form-control" id="name3" rows="3"></textarea>*/}
-                                {/*</div>*/}
-                                {/*<div class="form-group has-success">*/}
-                                    {/*<label class="form-control-label">Question</label>*/}
-                                    {/*<input type="text" class="form-control is-valid" id="name4"/>*/}
-                                {/*</div>*/}
-                                {/*<button type="submit" class="btn btn-primary">Submit</button>*/}
-                            {/*</form>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                    {/*</div>*/}
+
                 </div>
-                 {/*</div>*/}
             </div>
         );
     }

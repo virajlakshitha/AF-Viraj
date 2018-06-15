@@ -47,27 +47,6 @@ export default class PrintToken extends Component{
                             </div>
                         </Panel.Body>
                     </Panel>
-
-                    {/*<div class="card border-primary mb-3" style={{"max-width": "20rem;"}}>*/}
-                        {/*<div class="card-header">Patient Information</div>*/}
-                        {/*<div class="card-body">*/}
-                            {/*<Patient/>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                    {/*<div class="card border-primary mb-3" style={{"max-width": "20rem;"}}>*/}
-                        {/*<div class="card-header">Print Token</div>*/}
-                        {/*<div class="card-body">*/}
-                            {/*<div class="card text-white bg-success mb-3" style={{"max-width": "20rem;"}}>*/}
-                                {/*<div class="card-body">*/}
-                                    {/*<label class="card-text">Token Number : </label>*/}
-                                    {/*<label>{this.state.queue.length+1}</label>*/}
-                                    {/*<label id={"token-button"}>*/}
-                                        {/*<button type="button" class="btn btn-secondary" onClick={event => this.printToken(event)}>Print Token</button>*/}
-                                    {/*</label>*/}
-                                {/*</div>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         );

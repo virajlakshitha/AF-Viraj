@@ -1,4 +1,4 @@
-const mongoose=require('../DBScheme/OnlineDocDB');
+const mongoose=require('../DBScheme/QuestionDB');
 const DoctorSchema=mongoose.model('Onlinedoc');
 
 var Controller=function () {

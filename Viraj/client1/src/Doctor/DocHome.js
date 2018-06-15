@@ -23,8 +23,6 @@ export default class DocHome extends Component {
                 this.setState({
                     patient: res.data.data || res.data
                 });
-            }).catch(err=>{
-                alert(err);
             })
         });
 
@@ -35,9 +33,7 @@ export default class DocHome extends Component {
                     queue: res.data.data || res.data
             });
             this.getQueue();
-        }).catch(err=>{
-            alert(err);
-        })
+        });
     }
     changeButton(val){
         if(val === 'Run'){
@@ -70,7 +66,6 @@ export default class DocHome extends Component {
         }
     }
     removePatient(id){
-        alert(id);
         var ids=id;
         axios.delete(api.API+"queue/"+ids).then(res=>{
             if(res.status == 200){
@@ -126,16 +121,20 @@ export default class DocHome extends Component {
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
+                                    <th scope="col" className={"field-border"}>Patient HIN</th>
                                     <th scope="col" className={"field-border"}>Name</th>
-                                    <th scope="col" className={"field-border"}>Patient Id</th>
-                                    <th scope="col" className={"field-border"}>Queue Number</th>
+                                    <th scope="col" className={"field-border"}>Age</th>
+                                    <th scope="col" className={"field-border"}>Sex</th>
+                                    <th scope="col" className={"field-border"}>Remarks</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {this.state.patient.map(patient=>
                                     <tr class="table-active" key={patient.id}>
-                                        <td className={"field-border-1"}>{patient._id}</td>
+                                        <td className={"field-border-1"}>{patient.hin}</td>
                                         <td className={"field-border-1"}>{patient.name}</td>
+                                        <td className={"field-border-1"}>{patient.age}</td>
+                                        <td className={"field-border-1"}>{patient.sex}</td>
                                         <td className={"field-border-1"}>{patient.remarks}</td>
                                         <td className={"field-border-1"}>
                                             <Button bsStyle="primary" onClick={event=>this.removePatient(patient._id)}>Dismiss</Button>
@@ -146,61 +145,7 @@ export default class DocHome extends Component {
                             </table>
                         </Panel.Body>
                     </Panel>
-                    {/*<div class="card border-primary mb-3" style={{"max-width": "20rem;"}}>*/}
-                        {/*<div class="card-header">Patient Information</div>*/}
-                        {/*<div class="card-body">*/}
-                            {/*<tr>*/}
-                                {/*<td className={"left-field-d"}>Name </td>*/}
-                                {/*<td className={"left-field-d"}>:</td>*/}
-                                {/*<td className={"right-field-d"}>Dr. Wasanatha</td>*/}
-                            {/*</tr>*/}
-                            {/*<hr/>*/}
-                            {/*<tr>*/}
-                                {/*<td className={"left-field-d"}>No. of Patients </td>*/}
-                                {/*<td className={"left-field-d"}>:</td>*/}
-                                {/*<td className={"right-field-d"}>{this.state.queue.length}</td>*/}
-                            {/*</tr>*/}
-                            {/*<hr/>*/}
-                            {/*<tr>*/}
-                                {/*<td className={"left-field-d"}>Queue Status </td>*/}
-                                {/*<td className={"left-field-d"}>:</td>*/}
-                                {/*<td className={"right-field-d"}>Open</td>*/}
-                            {/*</tr>*/}
-                            {/*<hr/>*/}
-                            {/*<hr/>*/}
-                            {/*<tr>*/}
-                                {/*<td className={"left-field-d"}>Queue Type </td>*/}
-                                {/*<td className={"left-field-d"}>:</td>*/}
-                                {/*<td className={"right-field-d"}>Regular</td>*/}
-                            {/*</tr>*/}
-                            {/*<div className={"inside"}>*/}
-                                {/*<button type="button" class="btn btn-primary" id="but" onClick={event => this.changeDocOnline(event)}>{this.state.status} Queue</button>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                    {/*<div class="card border-primary mb-3" style={{"max-width": "20rem;"}}>*/}
-                        {/*<div class="card-header">Patient Information</div>*/}
-                        {/*<div class="card-body">*/}
-                            {/*<table class="table table-hover">*/}
-                                {/*<thead>*/}
-                                {/*<tr>*/}
-                                    {/*<th scope="col" className={"field-border"}>Name</th>*/}
-                                    {/*<th scope="col" className={"field-border"}>Patient Id</th>*/}
-                                    {/*<th scope="col" className={"field-border"}>Queue Number</th>*/}
-                                {/*</tr>*/}
-                                {/*</thead>*/}
-                                {/*<tbody>*/}
-                                {/*{this.state.patient.map(patient=>*/}
-                                    {/*<tr class="table-active" key={patient.id}>*/}
-                                        {/*<td className={"field-border-1"}>{patient._id}</td>*/}
-                                        {/*<td className={"field-border-1"}>{patient.name}</td>*/}
-                                        {/*<td className={"field-border-1"}>{patient.remarks}</td>*/}
-                                    {/*</tr>*/}
-                                {/*)}*/}
-                                {/*</tbody>*/}
-                            {/*</table>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
+
                 </div>
             </div>
         );

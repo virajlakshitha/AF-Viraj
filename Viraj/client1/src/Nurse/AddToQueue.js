@@ -28,6 +28,17 @@ class App extends Component {
             });
         })
     }
+    validation(){
+        var val1=document.getElementById("exampleSelect2").value;
+        var val2=document.getElementById("assign").value;
+        var val3=document.getElementById("exampleTextarea").value;
+        if (val1.match(/^\d/) || val2.match(/^\d/) || val3.match(/^\d/)) {
+            alert("Input values are incorrect");
+        }
+        else{
+            this.onSubmit();
+        }
+    }
     onDoctorChange(event){
         event.preventDefault();
         this.state.doctor=event.target.value;
@@ -42,10 +53,7 @@ class App extends Component {
         event.stopPropagation();
         this.state.remarks=event.target.value;
     }
-    onSubmit(event){
-        alert("abc");
-        event.preventDefault();
-        event.stopPropagation();
+    onSubmit(){
         axios.post(api.API+"queue",{
             doctor:document.getElementById("exampleSelect2").value,
             patient:'abc',
@@ -53,9 +61,9 @@ class App extends Component {
             assignedBy:document.getElementById("assign").value,
             remarks: document.getElementById("exampleTextarea").value
         }).then(res=>{
-            alert("done");
+            alert("Added successfully");
         }).catch(err=>{
-            alert("error");
+            alert(err);
         });
         this.setState({
             doctor: '',
@@ -69,12 +77,6 @@ class App extends Component {
     return (<div>
             <NavBar/>
             <div className={"bottom-content"}>
-                {/*<div class="card border-primary mb-3" style={{"max-width": "20rem;"}}>*/}
-                    {/*<div class="card-header">Patient Information</div>*/}
-                    {/*<div class="card-body">*/}
-                        {/*<Patient/>*/}
-                    {/*</div>*/}
-                {/*</div>*/}
                 <Panel bsStyle="primary">
                     <Panel.Heading>
                         <Panel.Title componentClass="h3">Patient Information</Panel.Title>
@@ -86,7 +88,7 @@ class App extends Component {
                         <Panel.Title componentClass="h3">Add to Queue</Panel.Title>
                     </Panel.Heading>
                     <Panel.Body>
-                        <form onSubmit={event => this.onSubmit(event)}>
+                        <form onSubmit={() => this.validation()}>
                             <div class="form-group">
                                 <label for="exampleSelect2">Assign To</label>
                                 <select multiple="" class="form-control" id="exampleSelect2" onChange={event=>this.onDoctorChange(event)}>
@@ -111,12 +113,6 @@ class App extends Component {
                         </form>
                     </Panel.Body>
                 </Panel>
-                {/*<div class="card border-primary mb-3" style={{"max-width": "20rem;"}}>*/}
-                    {/*<div class="card-header">Add to Queue</div>*/}
-                    {/*<div class="card-body">*/}
-
-                    {/*</div>*/}
-                {/*</div>*/}
             </div>
         </div>
     );

@@ -5,6 +5,7 @@
     height: 100%;
     position: fixed;
     top: 50px;
+    z-index: 1;
 }
 li{
     list-style: none;

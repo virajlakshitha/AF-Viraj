@@ -21,6 +21,15 @@ export default class ViewQuestions extends Component{
         };
         this.displayQuestions();
     }
+    validation(){
+        var val1=document.getElementById("exampleTextarea-1").value;
+        if (val1.match(/^\d/)) {
+            alert("Input values are incorrect");
+        }
+        else{
+            this.onSubmit();
+        }
+    }
     displayQuestions(){
         axios.get(api.API+"question").then(res=>{
             this.setState({
@@ -43,9 +52,7 @@ export default class ViewQuestions extends Component{
             answer: event.target.value
         })
     }
-    onSubmit(event){
-        event.preventDefault();
-        event.stopPropagation();
+    onSubmit(){
         axios.put(api.API+"question/"+this.state.id,{
             name: this.state.name,
             relateTo: this.state.relateTo,
@@ -101,7 +108,7 @@ export default class ViewQuestions extends Component{
                                 </tbody>
                             </table>
                             <div class="card-body">
-                                <form onSubmit={event => this.onSubmit(event)}>
+                                <form onSubmit={() => this.validation()}>
                                     <div class="form-group">
                                         <label for="exampleTextarea">Question</label>
                                         <textarea class="form-control" id="exampleTextarea" rows="3" disabled=""></textarea>
@@ -115,48 +122,7 @@ export default class ViewQuestions extends Component{
                             </div>
                         </Panel.Body>
                     </Panel>
-                    {/*<div class="card border-primary mb-3" style={{"max-width": "20rem;"}}>*/}
-                        {/*<div class="card-header">View Questions</div>*/}
-                        {/*<div class="card-body">*/}
-                            {/*<table class="table table-hover">*/}
-                                {/*<thead>*/}
-                                {/*<tr>*/}
-                                    {/*<th scope="col">Name</th>*/}
-                                    {/*<th scope="col">RelateTo</th>*/}
-                                    {/*<th scope="col">Remarks</th>*/}
-                                    {/*<th scope="col">Question</th>*/}
-                                    {/*<th scope="col">Answer</th>*/}
-                                {/*</tr>*/}
-                                {/*</thead>*/}
-                                {/*<tbody>*/}
-                                {/*{this.state.question.map(question=>*/}
-                                    {/*<tr class="table-active" key={question.id} onClick={()=>this.getQuestion(question) }>*/}
-                                        {/*<td>{question.name}</td>*/}
-                                        {/*<td>{question.relateTo}</td>*/}
-                                        {/*<td>{question.remarks}</td>*/}
-                                        {/*<td>{question.question}</td>*/}
-                                        {/*<td>{question.answer}</td>*/}
-                                    {/*</tr>*/}
-                                {/*)}*/}
-                                {/*</tbody>*/}
-                            {/*</table>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                    {/*<div class="card border-primary mb-3" style={{"max-width": "20rem;"}}>*/}
-                        {/*<div class="card-body">*/}
-                            {/*<form onSubmit={event => this.onSubmit(event)}>*/}
-                                {/*<div class="form-group">*/}
-                                    {/*<label for="exampleTextarea">Question</label>*/}
-                                    {/*<textarea class="form-control" id="exampleTextarea" rows="3" disabled=""></textarea>*/}
-                                {/*</div>*/}
-                                {/*<div class="form-group">*/}
-                                    {/*<label for="exampleTextarea">Answer</label>*/}
-                                    {/*<textarea class="form-control" id="exampleTextarea-1" rows="3"></textarea>*/}
-                                {/*</div>*/}
-                                {/*<button type="submit" class="btn btn-primary">Submit</button>*/}
-                            {/*</form>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
+
                 </div>
             </div>
         );

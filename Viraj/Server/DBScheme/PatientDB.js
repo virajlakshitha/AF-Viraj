@@ -2,6 +2,10 @@ const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 
 const PatientSchema=Schema({
+    hin: {
+        type: String,
+        require: true
+    },
     name: {
         type: String,
         require: true
