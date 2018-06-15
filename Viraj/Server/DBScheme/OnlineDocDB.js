@@ -8,7 +8,7 @@ const DoctorSchema=Schema({
     }
 });
 
-mongoose.model('Doctor',DoctorSchema);
+mongoose.model('Onlinedoc',DoctorSchema);
 
 mongoose.connect('mongodb://127.0.0.1:27017/Hospital',function (err) {
     if(err){

@@ -1,5 +1,5 @@
-const mongoose=require('../DBScheme/DoctorDB');
-const DoctorSchema=mongoose.model('Doctor');
+const mongoose=require('../DBScheme/OnlineDocDB');
+const DoctorSchema=mongoose.model('Onlinedoc');
 
 var Controller=function () {
     this.addDoctor=function (data) {
@@ -27,6 +27,14 @@ var Controller=function () {
         return new Promise(function (resolve,reject) {
             DoctorSchema.find({_id:id}).exec().then(function (value) {
                 resolve({status:200, doctor: value});
+            }).catch(function (reason) {
+                reject({status:404, message:"Id not found"});
+            })
+        })
+    };this.deleteDoctor=function (name) {
+        return new Promise(function (resolve,reject) {
+            DoctorSchema.remove({name:name}).then(function () {
+                resolve({status:200, message: "Deleted"});
             }).catch(function (reason) {
                 reject({status:404, message:"Id not found"});
             })

@@ -1,0 +1,11 @@
+.nav-bar{
+    width: 15%;
+    background-color: #303030;
+    color: white;
+    height: 100%;
+    position: fixed;
+    top: 50px;
+}
+li{
+    list-style: none;
+}

@@ -6,23 +6,20 @@ const QueueSchema=Schema({
         type: String,
         require: true
     },
-    patients: [{
-        status:String,
-        patient:{
-            type: Schema.Types.ObjectId,
-            ref: 'Patient'
-        }
-    }],
-    treatStatus:{
-        type:String,
+    patient: {
+        type: String,
         require: true
     },
-    type: {
-        type: String,
+    time:{
+        type:String,
         require: true
     },
     assignedBy: {
         type: String,
+        require: true
+    },
+    remarks: {
+        type:String,
         require: true
     }
 });

@@ -7,7 +7,7 @@ const QuestionSchema=Schema({
         require: true
     },
     relateTo: {
-        type: Number,
+        type: String,
         require: true
     },
     remarks: {

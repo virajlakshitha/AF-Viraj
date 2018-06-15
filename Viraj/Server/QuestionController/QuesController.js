@@ -14,7 +14,7 @@ var Controller=function () {
             Question.save().then(function () {
                 resolve({status:200, message: "successfully added"});
             }).catch(function (reason) {
-                reject({status:404, message: "Error"});
+                reject({status:500, message: "Error"});
             })
         });
 

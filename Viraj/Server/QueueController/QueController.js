@@ -6,10 +6,11 @@ var Controller=function () {
         return new Promise(function (resolve,reject) {
             var Queue=QueueSchema({
                 doctor:data.doctor,
-                patients: [data.patients,data.status],
-                treatStatus: data.treatStatus,
+                patient: data.patient,
+                time: data.time,
                 type: data.type,
-                assignedBy: data.assignedBy
+                assignedBy: data.assignedBy,
+                remarks: data.remarks
             });
             Queue.save().then(function () {
                 resolve({status:200, message: "successfully added"});
@@ -45,9 +46,9 @@ var Controller=function () {
             })
         })
     };
-    this.deleteQueue=function (doctor) {
+    this.deleteQueue=function (patient) {
         return new Promise(function (resolve,reject) {
-            QueueSchema.remove({doctor:doctor}).then(function () {
+            QueueSchema.remove({patient:patient}).then(function () {
                 resolve({status:200, message:"Successfully deleted"});
             }).catch(function (reason) {
                 reject({status:404, message:"Cannot find the id"});

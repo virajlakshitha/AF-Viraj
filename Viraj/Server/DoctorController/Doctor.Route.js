@@ -23,5 +23,12 @@ router.get('/:id',function (req,res) {
         res.status(reason.status).send({message: reason.message});
     })
 });
+router.delete('/:name',function (req,res) {
+    Controller.deleteDoctor(req.params.name).then(function (data) {
+        res.status(data.status).send({data:data.message});
+    }).catch(function (reason) {
+        res.status(reason.status).send({message: reason.message});
+    })
+});
 
 module.exports = router;
